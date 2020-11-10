@@ -1,0 +1,117 @@
+{% extends '@Shop/layout.html.twig' %}
+{% trans_default_domain 'ShopBundle' %}
+
+{% block title %}
+    {{ 'layout.navbar.sitename'|trans }} - {{ 'categories.menu.header'|trans }}
+{% endblock title %}
+
+{% block page_content -%}
+<div class="outer-top-ts top-banner">
+    <div class="container">
+      <img class="img-responsive" src="{{ asset('assets\images\banners\top-banner.png') }}" alt=""></div>
+  </div>
+    {% if slides|length %}
+        {{ include('@Shop/Partials/slidesBlock.html.twig') }}
+    {% endif %}
+    <div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12">
+          <!-- ========================================== SECTION – HERO ========================================= -->
+
+
+
+          <!-- ========================================= SECTION – HERO : END ========================================= -->
+
+
+          <!-- ============================================== STORES SECTION ============================================== -->
+          <section class="section featured-section wow fadeInUp animated" style="visibility: visible;">
+            <h2>Category For You</h2>
+            <div class="featured-product">
+              <div class="owl-carousel homepage-owl-carousel custom-carousel owl-theme outer-top-xs" style="opacity: 1; display: block;">
+                <div class="owl-wrapper-outer">
+                  <div class="owl-wrapper" style="width: 2838px; left: 0px; display: block; transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+                     <div class="owl-item" style="width: 129px;">
+                        <div class="item item-carousel">
+                            
+                            
+                            
+                            <div class="products">
+                               <div class="product">
+                                  <div class="product-image">
+                                      <div class="image">
+                                      <a href="#">
+                                         <img src="{{ asset('assets/shop_images/brands/store-3.png') }}" alt="">
+                                         </a>
+
+                                       </div>
+                          <!-- /.image -->
+
+                                       </div>
+                            <div class="product-info">
+                                <h3 class="name"><a href="#">Baseball</a></h3>
+                                </div>
+
+                        </div>
+                    <!-- /.product -->
+
+                  
+                   
+                </div>
+                </div>
+                </div>
+                </div>
+
+                <!-- /.item -->
+                
+                
+                
+                
+                
+                
+                
+              <div class="owl-controls clickable"><div class="owl-buttons"><div class="owl-prev"></div><div class="owl-next"></div></div></div></div>
+
+              <!-- /.home-owl-carousel -->
+            </div>
+          </section>
+          <!-- /.section -->
+          <!-- ============================================== stores : END ============================================== -->
+
+
+ 
+        
+              {{tttt.dateUpdated | date('Y-m-d H:i:s')}}
+             
+        
+        <div class="col-md-12">
+            <div class="well">
+                {% if news | length %}
+                    <h4>
+                        <strong>{{ news.title }}</strong>
+                    </h4>
+                    <div>
+                        {{ news.text|rawdescr|nl2br }}
+                    </div>
+                    <p class="pull-right">{{ news.date|date() }}</p>
+                {% else %}
+                    {{ 'news.nonews'|trans }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center">{{ 'layout.index.latestproducts'|trans }}</h3>
+            {% for product in latest_products %}
+                {{ include('@Shop/Partials/productPreview.html.twig') }}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center">{{ 'layout.index.featuredproducts'|trans }}</h3>
+            {% for product in featured_products %}
+                {{ include('@Shop/Partials/productPreview.html.twig') }}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock page_content %}
