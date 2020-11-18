@@ -1,6 +1,6 @@
 {% trans_default_domain 'ShopBundle' %}
 <div class="row">
-    <div class="col-md-12">
+    {# <div class="col-md-12">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -13,22 +13,24 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="{{ asset('uploads/images/' ~ slides.0.path) | imagine_filter('slide') }}" alt="{{ slides.0.name }}">
+                    <img src="{{ asset('uploads/images/' ~ slides.0.path)  }}" alt="{{ slides.0.name }}">
                     <div class="carousel-caption">
                     </div>
                 </div>
                 {% for slide in slides|slice(1) %}
                     <div class="item">
-                        <img src="{{ asset('uploads/images/' ~ slide.path) | imagine_filter('slide') }}"
+                        <img src="{{ asset('uploads/images/' ~ slide.path)   }}"
                              alt="{{ slide.name }}">
                         <div class="carousel-caption">
                         </div>
                     </div>
                 {% endfor %}
             </div>
-
+            	
+{# {{ dump( asset('uploads/images/' ~ slides.0.path)) }} #}
+ 
             <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            {# <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">{{ 'slider.previous'|trans }}</span>
             </a>
@@ -39,7 +41,7 @@
         </div>
     </div>
 </div>
-<br/>
+<br/> #}  
 <div class="slider-section">
 
         <!-- ============================================== SIDEBAR ============================================== -->
@@ -55,7 +57,7 @@
           <div id="hero">
             <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
             <div class="item active">
-                    <img src="{{ asset('uploads/images/' ~ slides.0.path) | imagine_filter('slide') }}" alt="{{ slides.0.name }}">
+                    <img src="{{ asset('uploads/images/' ~ slides.0.path)   }}" alt="{{ slides.0.name }}">
                     <div class="carousel-caption">
                     </div>
                 </div>
@@ -64,7 +66,7 @@
                
               
               
-              <div class="item" style="background-image: url({{ asset('uploads/images/' ~ slide.path) | imagine_filter('slide') }});">
+              <div class="item" style="background-image: url({{ asset('uploads/images/' ~ slide.path)   }});">
                 <div class="container-fluid">
                   <div class="caption bg-color vertical-center text-left">
                     <div class="slider-header fadeInDown-1">Top Brands</div>

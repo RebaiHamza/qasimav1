@@ -30,6 +30,14 @@ class CatalogController extends Controller
         $slideRepository = $em->getRepository('ShopBundle:Slide');
         $productRepository = $em->getRepository('ShopBundle:Product');
 
+        $c = $em->getRepository( 'ShopBundle:Category' );
+        $cat =  $c->createQueryBuilder( 'p' )
+        ->select( 'p' )->setMaxResults(3) ->setFirstResult(0) ->getQuery()
+        ->getResult();
+            
+        
+        // $catts = $cat->getResult();
+        // $catss= $cat->setMaxResults(5)->getOneOrNullResult();
         //sorted by order number
         $slides = $slideRepository->findBy(['enabled' => true], ['slideOrder' => 'ASC']);
         $lastNews = $newsRepository->getLastNews();
@@ -58,12 +66,16 @@ $options = array(
 
 $generator =  new Generator();
 $barcode = $generator->generate($options);
+
+
+
         return ['code'=>$barcode,
             'tttt'=>$results[0],
             'featured_products' => $featuredProducts,
                 'latest_products' => $latestProducts,
                 'news' => $lastNews,
-                'slides' => $slides
+                'slides' => $slides,
+                'catss'=>$cat
         ];
     }
 
